@@ -6,7 +6,7 @@ interface CuboProps {
 
 function Cubo({ args = [1, 1, 1], position = [0, 0, 0], color }: CuboProps) {
   return (
-    <mesh position={position}>
+    <mesh castShadow receiveShadow position={position}>
       <boxGeometry args={args} />
       <meshStandardMaterial color={color} />
     </mesh>
