@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Model({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("../../public/Models/sphere.gltf");
+  const { nodes, materials } = useGLTF("../models/sphere.gltf");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} />
@@ -15,4 +15,4 @@ export default function Model({ ...props }) {
   );
 }
 
-useGLTF.preload("../../public/Models/sphere.gltf");
+useGLTF.preload("../models/sphere.gltf");

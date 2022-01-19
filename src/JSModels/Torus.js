@@ -7,7 +7,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Model({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("../../public/Models/torus.gltf");
+  const { nodes, materials } = useGLTF("../models/torus.gltf");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh geometry={nodes.Torus.geometry} material={nodes.Torus.material} />
@@ -15,4 +15,4 @@ export default function Model({ ...props }) {
   );
 }
 
-useGLTF.preload("../../public/Models/torus.gltf");
+useGLTF.preload("../models/torus.gltf");
