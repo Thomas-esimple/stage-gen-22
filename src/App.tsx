@@ -2,8 +2,8 @@ import "./App.css";
 import { Canvas, useThree } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
 import { OrbitControls, useScroll } from "@react-three/drei";
-import Cubo from "./components/Cubo";
-import Piano from "./components/Piano";
+import Cube from "./components/Cube";
+import Plane from "./components/Plane";
 import { BasicShadowMap } from "three";
 function App() {
   return (
@@ -12,8 +12,8 @@ function App() {
       <ambientLight intensity={1} />
       <OrbitControls />
       <Suspense fallback={null}>
-        <Cubo args={[3, 3, 3]} position={[0, 0, 0]} />
-        <Piano position={[0, -3, 0]} />
+        <Cube dimension={[3, 3, 3]} position={[0, 0, 0]} />
+        <Plane position={[0, -3, 0]} />
       </Suspense>
     </Canvas>
   );

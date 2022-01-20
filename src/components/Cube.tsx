@@ -2,12 +2,12 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 
-interface CuboProps {
-  args: [number, number, number];
+interface CubeProps {
+  dimension: [number, number, number];
   position: [number, number, number];
 }
 
-function Cubo({ args = [1, 1, 1], position = [0, 0, 0] }: CuboProps) {
+function Cube({ dimension = [1, 1, 1], position = [0, 0, 0] }: CubeProps) {
   const boxRef = useRef<Mesh>();
 
   useFrame(() => {
@@ -18,10 +18,10 @@ function Cubo({ args = [1, 1, 1], position = [0, 0, 0] }: CuboProps) {
   });
   return (
     <mesh ref={boxRef} castShadow position={position}>
-      <boxGeometry args={args} />
+      <boxGeometry args={dimension} />
       <meshStandardMaterial color={"red"} />
     </mesh>
   );
 }
 
-export default Cubo;
+export default Cube;
