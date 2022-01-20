@@ -1908,6 +1908,11 @@
   dependencies:
     "@types/jest" "*"
 
+"@types/three@^0.136.1":
+  "integrity" "sha512-gzTw6RR4dU8sGf+RpLBWWKHRVIJ4gwKVQPk+IFCgha04Efg/itXYUalX6iBcYeSmaDu0qE5M7uTq0XLQpU4FAg=="
+  "resolved" "https://registry.npmjs.org/@types/three/-/three-0.136.1.tgz"
+  "version" "0.136.1"
+
 "@types/trusted-types@^2.0.2":
   "integrity" "sha512-F5DIZ36YVLE+PN+Zwws4kJogq47hNgX3Nx6WyDJ3kcplxyke3XIzB8uK5n/Lpm1HBsbGzd6nmGehL8cPekP+Tg=="
   "resolved" "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.2.tgz"

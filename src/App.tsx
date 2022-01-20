@@ -4,9 +4,10 @@ import { Suspense, useRef } from "react";
 import { OrbitControls, useScroll } from "@react-three/drei";
 import Cubo from "./components/Cubo";
 import Piano from "./components/Piano";
+import { BasicShadowMap } from "three";
 function App() {
   return (
-    <Canvas shadows={{ type: "BasicShadowMap" }}>
+    <Canvas shadows={{ type: BasicShadowMap }}>
       <pointLight castShadow position={[0, 15, 0]} intensity={1} />
       <ambientLight intensity={1} />
       <OrbitControls
@@ -16,8 +17,8 @@ function App() {
         dispatchEvent={undefined}
       />
       <Suspense fallback={null}>
-        <Cubo args={[3, 3, 3]} position={[0, 0, 0]} color="red" />
-        <Piano position={[0, -3, 0]} color="blue" />
+        <Cubo args={[3, 3, 3]} position={[0, 0, 0]} />
+        <Piano position={[0, -3, 0]} />
       </Suspense>
     </Canvas>
   );

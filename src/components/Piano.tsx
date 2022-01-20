@@ -1,13 +1,12 @@
 interface PianoProps {
-  position: number[];
-  color: String;
+  position: [number, number, number];
 }
 
-function Piano({ position = [0, -3, 0], color }: PianoProps) {
+function Piano({ position = [0, -3, 0] }: PianoProps) {
   return (
     <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]} position={position}>
       <planeGeometry args={[100, 100]} />
-      <meshStandardMaterial color={color} />
+      <meshStandardMaterial color="white" />
     </mesh>
   );
 }
