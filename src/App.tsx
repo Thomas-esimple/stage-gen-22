@@ -1,25 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Canvas, useThree } from "@react-three/fiber";
+import { Suspense, useRef } from "react";
+import { OrbitControls, useScroll } from "@react-three/drei";
+import Cube from "./components/Cube";
+import Plane from "./components/Plane";
+import { BasicShadowMap } from "three";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Canvas shadows={{ type: BasicShadowMap }}>
+      <pointLight castShadow position={[0, 15, 0]} intensity={1} />
+      <ambientLight intensity={1} />
+      <OrbitControls />
+      <Suspense fallback={null}>
+        <Cube dimensions={[3, 3, 3]} position={[0, 0, 0]} />
+        <Plane position={[0, -3, 0]} />
+      </Suspense>
+    </Canvas>
   );
 }
 
