@@ -10,12 +10,7 @@ function App() {
     <Canvas shadows={{ type: BasicShadowMap }}>
       <pointLight castShadow position={[0, 15, 0]} intensity={1} />
       <ambientLight intensity={1} />
-      <OrbitControls
-        addEventListener={undefined}
-        hasEventListener={undefined}
-        removeEventListener={undefined}
-        dispatchEvent={undefined}
-      />
+      <OrbitControls />
       <Suspense fallback={null}>
         <Cubo args={[3, 3, 3]} position={[0, 0, 0]} />
         <Piano position={[0, -3, 0]} />
