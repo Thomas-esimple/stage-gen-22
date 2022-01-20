@@ -12,7 +12,7 @@ function App() {
       <ambientLight intensity={1} />
       <OrbitControls />
       <Suspense fallback={null}>
-        <Cube dimension={[3, 3, 3]} position={[0, 0, 0]} />
+        <Cube dimensions={[3, 3, 3]} position={[0, 0, 0]} />
         <Plane position={[0, -3, 0]} />
       </Suspense>
     </Canvas>

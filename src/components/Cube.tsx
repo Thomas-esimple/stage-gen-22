@@ -3,11 +3,11 @@ import { useRef } from "react";
 import { Mesh } from "three";
 
 interface CubeProps {
-  dimension: [number, number, number];
+  dimensions: [number, number, number];
   position: [number, number, number];
 }
 
-function Cube({ dimension = [1, 1, 1], position = [0, 0, 0] }: CubeProps) {
+function Cube({ dimensions = [1, 1, 1], position = [0, 0, 0] }: CubeProps) {
   const boxRef = useRef<Mesh>();
 
   useFrame(() => {
@@ -18,7 +18,7 @@ function Cube({ dimension = [1, 1, 1], position = [0, 0, 0] }: CubeProps) {
   });
   return (
     <mesh ref={boxRef} castShadow position={position}>
-      <boxGeometry args={dimension} />
+      <boxGeometry args={dimensions} />
       <meshStandardMaterial color={"red"} />
     </mesh>
   );
