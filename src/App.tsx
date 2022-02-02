@@ -11,7 +11,7 @@ function App() {
       <ambientLight intensity={1} />
       <spotLight angle={0.14} position={[25, 50, -20]} />
       <Suspense fallback={null}>
-        <ScrollControls>
+        <ScrollControls pages={3}>
           <Model />
           <Environment preset="city" />
         </ScrollControls>
