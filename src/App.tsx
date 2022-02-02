@@ -1,19 +1,20 @@
 import "./App.css";
-import { Canvas, useThree } from "@react-three/fiber";
-import { Suspense, useRef } from "react";
-import { OrbitControls, useScroll } from "@react-three/drei";
-import Cube from "./components/Cube";
-import Plane from "./components/Plane";
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import { Environment, ScrollControls, useScroll } from "@react-three/drei";
+import Model from "./components/Model";
 import { BasicShadowMap } from "three";
+
 function App() {
   return (
     <Canvas shadows={{ type: BasicShadowMap }}>
-      <pointLight castShadow position={[0, 15, 0]} intensity={1} />
       <ambientLight intensity={1} />
-      <OrbitControls />
+      <spotLight angle={0.14} position={[25, 50, -20]} />
       <Suspense fallback={null}>
-        <Cube dimensions={[3, 3, 3]} position={[0, 0, 0]} />
-        <Plane position={[0, -3, 0]} />
+        <ScrollControls>
+          <Model />
+          <Environment preset="city" />
+        </ScrollControls>
       </Suspense>
     </Canvas>
   );
