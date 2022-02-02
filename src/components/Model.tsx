@@ -39,11 +39,11 @@ type GLTFResult = GLTF & {
 };
 
 interface TrackData {
-  times: [number];
+  times: Float32Array;
   values: any[];
 }
 
-function parseTrackDataAsVector3(track: any) {
+function parseTrackDataAsVector3(track: THREE.VectorKeyframeTrack) {
   let data: TrackData = { times: track.times, values: [] };
   for (let i = 0; i < track.values.length; i += 3) {
     data.values.push(
@@ -58,7 +58,7 @@ function parseTrackDataAsVector3(track: any) {
   return data;
 }
 
-function parseTrackDataAsQuaternion(track: any) {
+function parseTrackDataAsQuaternion(track: THREE.VectorKeyframeTrack) {
   let data: TrackData = { times: track.times, values: [] };
   for (let i = 0; i < track.values.length; i += 4) {
     data.values.push(
@@ -95,6 +95,8 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       rotation = parseTrackDataAsQuaternion(
         actions["CameraAction"].getClip().tracks[1]
       );
+
+      console.log(actions["CameraAction"].getClip().tracks[0]);
     }
   }, []);
 
