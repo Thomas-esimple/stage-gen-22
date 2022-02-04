@@ -1,15 +1,16 @@
 import React from "react";
 
 interface OverlayProps {
-  scroll: number;
-  setScroll: React.Dispatch<React.SetStateAction<number>>;
+  scroll: React.MutableRefObject<number>;
+  //setScroll: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Overlay = ({ scroll, setScroll }: OverlayProps) => {
+const Overlay = ({ scroll }: OverlayProps) => {
   const scrollHandler = (event: React.UIEvent<HTMLDivElement>) => {
     const element = event.target as HTMLDivElement;
-    setScroll(element.scrollTop / (element.scrollHeight - window.innerHeight));
-    console.log(scroll.toFixed(2));
+    let offset =
+      element.scrollTop / (element.scrollHeight - window.innerHeight);
+    scroll.current = parseFloat(offset.toFixed(2));
   };
 
   return (
