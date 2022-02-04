@@ -26,6 +26,17 @@ body,
   scroll-snap-type: y proximity;
 }
 
+#scroller {
+  width: 100%;
+  height: 300vh;
+}
+
+#info > h1 {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
 body {
   position: fixed;
   overflow: hidden;
