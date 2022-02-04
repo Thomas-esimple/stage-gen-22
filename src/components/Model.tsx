@@ -99,15 +99,11 @@ export default function Model(props: ModelProps) {
       rotation = parseTrackDataAsQuaternion(
         actions["CameraAction"].getClip().tracks[1]
       );
-
-      console.log(actions["CameraAction"].getClip());
     }
   }, []);
 
   useFrame((state, delta) => {
     if (actions["CameraAction"]) {
-      console.log(`Scroll value: ${props.scroll.current}`);
-
       const time =
         actions.CameraAction.getClip().duration * props.scroll.current;
       for (let i = 0; i < position.times.length - 1; i++) {
