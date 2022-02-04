@@ -16,6 +16,7 @@ const Overlay = ({ scroll }: OverlayProps) => {
 
   return (
     <div id="info" onScroll={scrollHandler}>
+      <p id="scrollInfo">{scrollValue}</p>
       <div style={{ height: "400vh" }}>
         <div className="dot">
           <h1>start</h1>
