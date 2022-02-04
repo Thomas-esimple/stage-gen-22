@@ -101,6 +101,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   }, []);
 
   useFrame((state, delta) => {
+    /*
     if (actions["CameraAction"]) {
       const time = actions.CameraAction.getClip().duration * scroll.offset;
       for (let i = 0; i < position.times.length - 1; i++) {
@@ -123,6 +124,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
         }
       }
     }
+    */
   });
 
   return (
