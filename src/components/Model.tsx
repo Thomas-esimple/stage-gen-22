@@ -103,7 +103,7 @@ export default function Model(props: ModelProps) {
   }, []);
 
   useFrame((state, delta) => {
-    if (actions["CameraAction"]) {
+    if (actions["CameraAction"] && position && rotation) {
       const time =
         actions.CameraAction.getClip().duration * props.scroll.current;
       for (let i = 0; i < position.times.length - 1; i++) {
