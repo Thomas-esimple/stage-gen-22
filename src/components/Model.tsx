@@ -74,8 +74,11 @@ function parseTrackDataAsQuaternion(track: THREE.VectorKeyframeTrack) {
   return data;
 }
 
-export default function Model(props: JSX.IntrinsicElements["group"]) {
-  const scroll = useScroll();
+type ModelProps = JSX.IntrinsicElements["group"] & {
+  scroll: React.MutableRefObject<number>;
+};
+
+export default function Model(props: ModelProps) {
   const group = useRef<THREE.Group>();
   const { nodes, materials, animations } = useGLTF(
     "/Models/animation.gltf"
@@ -88,6 +91,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   useEffect(() => {
     if (actions["CameraAction"]) {
       actions["CameraAction"].play().paused = true;
+
       position = parseTrackDataAsVector3(
         actions["CameraAction"].getClip().tracks[0]
       );
@@ -95,14 +99,13 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       rotation = parseTrackDataAsQuaternion(
         actions["CameraAction"].getClip().tracks[1]
       );
-
-      console.log(actions["CameraAction"].getClip().tracks[0]);
     }
   }, []);
 
   useFrame((state, delta) => {
     if (actions["CameraAction"]) {
-      const time = actions.CameraAction.getClip().duration * scroll.offset;
+      const time =
+        actions.CameraAction.getClip().duration * props.scroll.current;
       for (let i = 0; i < position.times.length - 1; i++) {
         if (time >= position.times[i] && time < position.times[i + 1]) {
           state.camera.position.lerp(position.values[i], 0.05);
